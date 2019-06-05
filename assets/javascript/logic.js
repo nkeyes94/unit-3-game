@@ -16,13 +16,34 @@ var randomTarget = alpha[randomNumber];
 //Logging the target to ensure functionality
 console.log(randomTarget);
 
-//Creating a number for guesses left
-var remaining = 9;
-
 //Creating win/loss
 var win = 0;
 var lose = 0;
 
 //Win/lose document var
-var docWin = document.getElementById("recWin");
+var docWin = document.getElementById("recWins");
 var docLose = document.getElementById("recLoss");
+var rem = document.getElementById("rem");
+
+//Win function
+function victory(){
+    alert("Round won!");
+    win++;
+    docWin.innerHTML=win;
+    rem.innerHTML=9;
+    randomTarget;
+    console.log(randomTarget);
+}
+
+document.onkeypress = function(e){
+    console.log(e.key +" pressed");
+    var remaining = rem.innerHTML - 1;
+    console.log("rem: "+ remaining);
+    rem.innerHTML = remaining;
+
+    if(e.key.toUpperCase() === randomTarget){
+        victory();
+    }
+}
+
+
