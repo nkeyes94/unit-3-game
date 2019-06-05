@@ -7,14 +7,8 @@ var alphaLength = alpha.length;
 //Random number with the max length of the array
 var randomNumber = Math.floor(Math.random()* (1, alphaLength));
 
-//Logging the target to ensure functionality
-console.log(randomNumber);
-
 //Creating a random target
 var randomTarget = alpha[randomNumber];
-
-//Logging the target to ensure functionality
-console.log(randomTarget);
 
 //Creating win/loss
 var win = 0;
@@ -24,6 +18,7 @@ var lose = 0;
 var docWin = document.getElementById("recWins");
 var docLose = document.getElementById("recLoss");
 var rem = document.getElementById("rem");
+var recGuess = document.getElementById("guesses");
 
 //Win function
 function victory(){
@@ -31,19 +26,44 @@ function victory(){
     win++;
     docWin.innerHTML=win;
     rem.innerHTML=9;
-    randomTarget;
-    console.log(randomTarget);
+    randomTarget = newRandom();
+}
+
+function loss(){
+    alert("Round lost!");
+    lose++;
+    docLose.innerHTML=lose;
+    rem.innerHTML=9;
+    randomTarget = newRandom();
+}
+
+//function newRandom (for a new target)
+function newRandom(){
+    var newNumber = Math.floor(Math.random() * (1, alphaLength));
+    var newRandom = alpha[newNumber];
+    return newRandom;
 }
 
 document.onkeypress = function(e){
-    console.log(e.key +" pressed");
     var remaining = rem.innerHTML - 1;
-    console.log("rem: "+ remaining);
     rem.innerHTML = remaining;
+    recGuess.append(" " + e.key + " ");
 
     if(e.key.toUpperCase() === randomTarget){
         victory();
+        //Clear the text list except for the initial text.
+        while(recGuess.childNodes.length > 1){
+            recGuess.removeChild(recGuess.lastChild);
+        }
+
+    }else if(remaining === 0){
+        loss();
+        //Clear the guess list except for the initial text.
+        while(recGuess.childNodes.length > 1){
+            recGuess.removeChild(recGuess.lastChild);
+        }
     }
+
 }
 
 
