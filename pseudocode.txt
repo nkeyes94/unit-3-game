@@ -1,0 +1,7 @@
+-Create an array with all letters
+-Create a random number with array.length as the max possible number
+-Create an input
+-Record the inputs and compare them to the randomly selected character
+-Create a var for winRate
+-Create a var for loseRate
+-Record both of these on the page
