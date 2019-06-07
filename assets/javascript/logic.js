@@ -63,7 +63,7 @@ document.onkeypress = function(e){
             recGuess.removeChild(recGuess.lastChild);
         }
     }
-
 }
+
 
 

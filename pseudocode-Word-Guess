@@ -1,0 +1,22 @@
+-Create an array with words to randomly be used to guess
+    -var wordArray = [a, b, c,...z]
+-Create a function to randomly select a word from the array
+    -Math.floor(Math.random()*(1, wordArray.length))
+-Record keystrokes from the player
+-Display the random word as underscores _ _ _ _
+-Create a guess remaining tracker
+    -guess remaining should perhaps be randomWord.length + 3.
+    -The +3 will give the user extra guesses while keeping the game dynamic
+    -Display the guess remaining
+-If a letter is in the random word, display it
+    -Perhaps a for loop or index checking
+    -for(var i = 0; i < randomWord.length; i++){
+        if(randomGuess === randomWord.charAt(i){
+            display letter;
+        })
+        else{
+            record guessed word;
+            guess remaining - 1  
+        }
+    }
+    -randomGuess.indexOf(randomWord) perhaps?
